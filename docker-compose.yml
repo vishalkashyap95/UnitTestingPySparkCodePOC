@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  pyspark-test:
+    build:
+      context: .
+      dockerfile: Dockerfile.env_setup
+    container_name: pyspark_test_container
+    working_dir: /code_base
+    command: pytest tests/
+    environment:
+      - JAVA_HOME=/usr/local/openjdk-11
+    restart: "no"
